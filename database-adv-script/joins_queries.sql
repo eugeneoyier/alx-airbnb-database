@@ -26,12 +26,11 @@ SELECT
     r.comment
 FROM properties p
 LEFT JOIN reviews r
-    ON p.id = r.property_id;
+    ON p.id = r.property_id
+ORDER BY p.id;
 
 -- Retrieve all users and all bookings, even if the user has no booking or a booking is not linked to a user
--- Using FULL OUTER JOIN
--- Note: Some SQL engines (e.g., MySQL) do not support FULL OUTER JOIN directly. 
--- You can emulate it using UNION of LEFT JOIN and RIGHT JOIN.
+-- Using FULL OUTER JOIN (emulated with UNION)
 SELECT 
     u.id AS user_id,
     u.username,
